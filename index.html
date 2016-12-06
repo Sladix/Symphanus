@@ -131,8 +131,9 @@
             function launchTraining(){
                 var layer_defs = [];
                 layer_defs.push({type:'input', out_sx:1, out_sy:1, out_depth:128*seqLength});
-                layer_defs.push({"type":"fc","num_neurons":10,"activation":"maxout","bias_pref":0,"in_sx":1,"in_sy":1,"in_depth":640});
-                layer_defs.push({type:'fc', num_neurons:20, activation:'relu'});
+                layer_defs.push({"type":"fc","num_neurons":20,"activation":"maxout","bias_pref":0,"in_sx":1,"in_sy":1,"in_depth":640});
+                layer_defs.push({"type":"fc","num_neurons":20,"activation":"sigmoid"});
+                layer_defs.push({"type":"fc","num_neurons":20,"activation":"tanh"});
                 layer_defs.push({type:'regression', num_neurons:128});
                 net = new convnetjs.Net();
                 net.makeLayers(layer_defs);
